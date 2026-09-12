@@ -1,0 +1,15 @@
+# QA rasterisations — regenerate with render.ps1
+qa/
+qa3/
+
+# cloned reference repos
+_ref/
+
+# pre-deploy duplicate of pravasi-krishi-bandhu/
+site/
+
+# vercel
+.vercel/
+
+node_modules/
+*.log

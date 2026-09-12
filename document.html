@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pravasi Krishi Bandhu — Krishi Ratna League Bengal</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --page:#f6f1e4; --surface:#fffdf7; --surface-sunk:#ece2c8;
+    --ink:#201a10; --ink-soft:#4a3f2a; --ink-mute:#7a6d52; --ink-faint:#a99c7c;
+    --green:#163a26; --green-soft:#1f5237; --green-tint:#e5efe1;
+    --gold:#c98a1f; --gold-soft:#e7b64f; --gold-tint:#fbeecb;
+    --terra:#a6461f; --terra-tint:#f5e2d5;
+    --rule:#ddd0ab; --rule-strong:#b9a978;
+    --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    --sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  }
+
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:var(--serif); color:var(--ink); background:var(--page); }
+
+  .page{
+    width:210mm; height:297mm; position:relative; overflow:hidden;
+    background:var(--page); page-break-after:always; break-after:page;
+    padding:20mm 18mm 20mm;
+  }
+  /* logos are pre-processed to transparent ground (assets/*-t.png) */
+
+  /* density variants for the copy-heavy pages */
+  .page.tight p{ font-size:9.7pt; line-height:1.5; margin-bottom:2.9mm; }
+  .page.tight p.lead{ font-size:11.6pt; line-height:1.45; margin-bottom:4mm; }
+  .page.tight .rule{ margin:4.4mm 0; }
+  .page.tight li{ font-size:9.3pt; line-height:1.48; margin-bottom:1.9mm; }
+  .page.tight td{ padding:2.1mm 3mm; font-size:9.3pt; }
+  .page.tight h3{ font-size:9.3pt; }
+  .page.tight .note{ padding:3.2mm 4.6mm; margin-top:4mm; }
+  .page.tight .note p{ font-size:8.5pt; line-height:1.5; }
+  .page.tight .two{ gap:8mm; }
+
+  .page.league .krl-inline{ width:33mm; margin-bottom:3.5mm; }
+  .page.league .dim{ gap:4mm; margin-bottom:4mm; }
+  .page.league .dim .d{ padding:3.6mm 4.2mm; }
+  .page.league .dim .d .nm{ font-size:12pt; }
+  .page.league .dim .d .w{ font-size:11pt; top:3.4mm; }
+  .page.league .dim .d p{ font-size:8.4pt; line-height:1.45; }
+  .page.league table{ margin-bottom:3.5mm; }
+
+  .page.xsum p.lead{ font-size:11.4pt; margin-bottom:4mm; }
+  .page.xsum .xrow{ padding:2.5mm 0; }
+  .page.xsum .xrow .v{ font-size:9.2pt; line-height:1.45; }
+  .page.xsum .xrow .k{ font-size:7.1pt; }
+  .page.xsum .bignum{ margin-top:5mm; gap:7mm; }
+  .page.xsum .bignum .n{ padding:4mm 4.5mm 3.8mm; }
+  .page.xsum .bignum .n .fig{ font-size:18pt; margin-bottom:1.5mm; }
+  .page.xsum .bignum .n .lab{ font-size:6.8pt; }
+  .page:last-child{ page-break-after:auto; }
+
+  /* ---------- shared type ---------- */
+  .eyebrow{ font-family:var(--sans); font-size:7.6pt; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--gold); font-weight:700; }
+  .eyebrow.green{ color:var(--green-soft); }
+  h1{ font-size:30pt; line-height:1.1; font-weight:400; letter-spacing:-.01em; }
+  h2{ font-size:19pt; line-height:1.18; font-weight:400; color:var(--green);
+      margin:0 0 5mm; letter-spacing:-.005em; }
+  h3{ font-family:var(--sans); font-size:9.6pt; font-weight:700; color:var(--ink);
+      letter-spacing:.01em; margin:0 0 1.8mm; }
+  p{ font-size:10.2pt; line-height:1.62; color:var(--ink-soft); margin:0 0 3.6mm; }
+  p.lead{ font-size:12.4pt; line-height:1.5; color:var(--ink); margin-bottom:5mm; }
+  strong{ color:var(--ink); font-weight:700; }
+  em{ font-style:italic; }
+  .bn{ font-size:10pt; color:var(--ink-mute); font-style:italic; }
+
+  .rule{ height:1px; background:var(--rule); margin:6mm 0; border:0; }
+  .rule-gold{ height:2.5px; width:16mm; background:var(--gold); margin:0 0 5mm; }
+
+  /* ---------- page furniture ---------- */
+  .folio{ position:absolute; left:18mm; right:18mm; bottom:9mm;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--sans); font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-faint);
+    border-top:1px solid var(--rule); padding-top:2.5mm; }
+  .ptop{ display:flex; justify-content:space-between; align-items:flex-end;
+    border-bottom:1px solid var(--rule); padding-bottom:3mm; margin-bottom:8mm; }
+  .ptop .t{ font-family:var(--sans); font-size:7.2pt; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--ink-mute); }
+
+  /* ---------- cover ---------- */
+  .cover{ background:var(--surface); padding:0; display:flex; flex-direction:column; }
+  .cover-band{ height:6mm; background:linear-gradient(90deg,
+     var(--green) 0%, var(--green) 26%, var(--gold) 26%, var(--gold) 62%,
+     var(--terra) 62%, var(--terra) 100%); }
+  .cover-inner{ flex:1; padding:16mm 18mm 14mm; display:flex; flex-direction:column; }
+  .cover-mast{ width:96mm; display:block; }
+  .cover-mid{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .cover h1{ font-size:41pt; color:var(--green); line-height:1.03; margin:0 0 2mm; }
+  .cover .bn-title{ font-size:15pt; color:var(--gold); margin:0 0 7mm; font-style:normal; }
+  .cover .sub{ font-size:13.2pt; line-height:1.5; color:var(--ink-soft);
+    max-width:118mm; margin:0 0 9mm; }
+  .cover .krl{ width:62mm; display:block; margin:0 0 8mm; }
+  .cover-foot{ border-top:1px solid var(--rule); padding-top:5mm;
+    display:flex; justify-content:space-between; align-items:flex-end; }
+  .cover-foot div{ font-family:var(--sans); font-size:7.6pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-mute); line-height:1.9; }
+  .cover-foot .r{ text-align:right; }
+
+  /* ---------- exec summary ---------- */
+  .xrow{ display:grid; grid-template-columns:33mm 1fr; gap:5mm;
+    padding:3.4mm 0; border-top:1px solid var(--rule); }
+  .xrow:last-of-type{ border-bottom:1px solid var(--rule); }
+  .xrow .k{ font-family:var(--sans); font-size:7.4pt; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--green-soft);
+    padding-top:.8mm; }
+  .xrow .v{ font-size:9.6pt; line-height:1.55; color:var(--ink-soft); }
+  .xrow .v strong{ color:var(--ink); }
+
+  .bignum{ display:flex; gap:9mm; margin:6mm 0 0; }
+  .bignum .n{ flex:1; background:var(--green); color:#fffdf7;
+    padding:5mm 5mm 4.5mm; border-radius:1.5mm; }
+  .bignum .n.gold{ background:var(--gold); }
+  .bignum .n .fig{ font-size:23pt; line-height:1; display:block; margin-bottom:2mm; }
+  .bignum .n .lab{ font-family:var(--sans); font-size:7.2pt; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.92; line-height:1.5; }
+
+  /* ---------- generic blocks ---------- */
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:9mm; }
+  .three{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:6mm; }
+  .card{ background:var(--surface); border:1px solid var(--rule);
+    border-radius:1.5mm; padding:5mm; }
+  .card.sunk{ background:var(--surface-sunk); border-color:var(--rule-strong); }
+  .card p{ font-size:9.4pt; margin-bottom:2.4mm; }
+  .card p:last-child{ margin-bottom:0; }
+
+  .quote{ border-left:2.5px solid var(--gold); padding:1mm 0 1mm 6mm;
+    margin:6mm 0; font-size:12.4pt; line-height:1.5; color:var(--green);
+    font-style:italic; }
+  .quote .attr{ display:block; font-family:var(--sans); font-style:normal;
+    font-size:7.4pt; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--ink-mute); margin-top:3mm; }
+
+  table{ width:100%; border-collapse:collapse; margin:0 0 5mm; }
+  th{ font-family:var(--sans); font-size:7.2pt; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--green-soft); text-align:left;
+    padding:0 3mm 2.2mm 0; border-bottom:1.5px solid var(--rule-strong); }
+  th.num, td.num{ text-align:right; padding-right:0; }
+  td{ font-size:9.6pt; color:var(--ink-soft); padding:2.6mm 3mm 2.6mm 0;
+    border-bottom:1px solid var(--rule); vertical-align:top; }
+  td strong{ color:var(--ink); }
+  tr.total td{ border-bottom:none; border-top:1.5px solid var(--rule-strong);
+    font-weight:700; color:var(--green); padding-top:3mm; }
+
+  ul{ list-style:none; margin:0 0 4mm; }
+  li{ font-size:9.8pt; line-height:1.55; color:var(--ink-soft);
+    padding-left:6mm; margin-bottom:2.4mm; position:relative; }
+  li:before{ content:''; position:absolute; left:0; top:2.1mm;
+    width:2.2mm; height:2.2mm; background:var(--gold); border-radius:50%; }
+  li strong{ color:var(--ink); }
+
+  .timeline{ margin:2mm 0 0; }
+  .tl{ display:grid; grid-template-columns:36mm 1fr; gap:5mm;
+    padding:3.6mm 0; border-top:1px solid var(--rule); position:relative; }
+  .tl:last-child{ border-bottom:1px solid var(--rule); }
+  .tl .d{ font-family:var(--sans); font-size:8.2pt; font-weight:700;
+    color:var(--green); letter-spacing:.02em; }
+  .tl .d span{ display:block; font-weight:400; font-size:7pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-faint); margin-top:.8mm; }
+  .tl .b{ font-size:9.6pt; line-height:1.55; color:var(--ink-soft); }
+  .tl .b strong{ color:var(--ink); }
+
+  .note{ background:var(--gold-tint); border-left:2.5px solid var(--gold);
+    padding:4mm 5mm; margin:5mm 0 0; }
+  .note p{ font-size:9pt; margin:0; color:var(--ink-soft); }
+  .note p+p{ margin-top:2.2mm; }
+  .note .h{ font-family:var(--sans); font-size:7.4pt; font-weight:700;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--terra);
+    display:block; margin-bottom:2mm; }
+
+  .green-panel{ background:var(--green); color:#f2eeda; padding:7mm 7mm 6mm;
+    border-radius:1.5mm; }
+  .green-panel h2{ color:#fffdf7; margin-bottom:3.5mm; }
+  .green-panel p{ color:#ddd6bd; }
+  .green-panel .eyebrow{ color:var(--gold-soft); }
+  .green-panel strong{ color:#fffdf7; }
+
+  .dim{ display:grid; grid-template-columns:1fr 1fr; gap:5mm; margin:0 0 5mm; }
+  .dim .d{ border:1px solid var(--rule); background:var(--surface);
+    border-radius:1.5mm; padding:4.5mm 5mm; position:relative; }
+  .dim .d .w{ position:absolute; top:4mm; right:5mm; font-family:var(--sans);
+    font-size:12pt; font-weight:700; color:var(--gold); }
+  .dim .d .nm{ font-size:13pt; color:var(--green); margin-bottom:.6mm; }
+  .dim .d .en{ font-family:var(--sans); font-size:7pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--ink-faint); margin-bottom:2.5mm; }
+  .dim .d p{ font-size:8.8pt; line-height:1.5; margin:0; }
+
+  .cta-box{ border:2px solid var(--green); border-radius:2mm; padding:7mm;
+    background:var(--surface); }
+  .cta-box .step{ display:grid; grid-template-columns:9mm 1fr; gap:4mm;
+    margin-bottom:4.5mm; }
+  .cta-box .step:last-child{ margin-bottom:0; }
+  .cta-box .step .i{ width:7.5mm; height:7.5mm; border-radius:50%;
+    background:var(--green); color:#fffdf7; font-family:var(--sans);
+    font-size:9pt; font-weight:700; display:flex; align-items:center;
+    justify-content:center; }
+  .cta-box .step .c h3{ margin-bottom:1.2mm; }
+  .cta-box .step .c p{ font-size:9.4pt; margin:0; }
+
+  .sign{ margin-top:7mm; padding-top:5mm; border-top:1px solid var(--rule); }
+  .sign .nm{ font-size:11.5pt; color:var(--green); margin-bottom:1mm; }
+  .sign .ti{ font-family:var(--sans); font-size:8pt; line-height:1.65;
+    color:var(--ink-mute); }
+
+  .contact{ display:grid; grid-template-columns:1fr 1fr; gap:8mm; margin-top:6mm; }
+  .contact .c h3{ color:var(--green-soft); margin-bottom:2mm; }
+  .contact .c p{ font-size:9.2pt; line-height:1.6; margin:0; }
+
+  .krl-inline{ width:44mm; display:block; margin:0 0 5mm; }
+  .mast-sm{ width:72mm; display:block; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. COVER ============ -->
+<section class="page cover">
+  <div class="cover-band"></div>
+  <div class="cover-inner">
+    <img class="cover-mast" src="assets/masthead-t.png" alt="KarmYog for the 21st Century · Bharatiya Krishak Samaj">
+
+    <div class="cover-mid">
+      <div class="eyebrow" style="margin-bottom:4mm">An invitation · Durga Puja 2026</div>
+      <h1>Pravasi<br>Krishi Bandhu</h1>
+      <div class="bn-title">প্রবাসী কৃষি বন্ধু</div>
+      <p class="sub">You know the name of your village. Somewhere in it, a young woman or
+      a young man is about to build a farm. This is an invitation to stand behind them —
+      for one season, for one hundred thousand rupees, with your eyes open the whole way.</p>
+      <img class="krl" src="assets/krl-logo-t.png" alt="Krishi Ratna League — Bengal">
+    </div>
+
+    <div class="cover-foot">
+      <div>
+        Bharatiya Krishak Samaj<br>
+        <span style="color:var(--gold)">Since 1955 — seven decades for the Indian farmer</span>
+      </div>
+      <div class="r">
+        KarmYog for the 21<sup>st</sup> Century<br>
+        West Bengal · Season 1 · 2026–27
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. EXECUTIVE SUMMARY ============ -->
+<section class="page xsum">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">In one page</div>
+      <h2 style="margin:2mm 0 0">The whole of it, briefly</h2>
+    </div>
+    <div class="t">Pravasi Krishi Bandhu</div>
+  </div>
+
+  <p class="lead">If you read nothing else, read this page. Everything after it is
+  evidence for what is written here.</p>
+
+  <div class="xrow">
+    <div class="k">What it is</div>
+    <div class="v">The <strong>Krishi Ratna League</strong> is a championship for farms, run in
+    the format that made cricket unmissable. Across West Bengal's <strong>294 assembly
+    constituencies</strong>, <strong>5,000 young women and men</strong> will each build a
+    <strong>Smart Integrated Farm</strong> — modern technique on small land — and be mentored,
+    verified and graded through one full season, Durga Puja 2026 to Durga Puja 2027.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">Your part</div>
+    <div class="v">You stand behind <strong>one</strong> of them. Not a fund, not a cause — one named
+    young person, in a district you choose. You will be shown <strong>three applicants</strong>
+    and you pick who you back.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">The amount</div>
+    <div class="v"><strong>₹1,00,000</strong> for the season, paid as
+    <strong>five monthly instalments of ₹20,000</strong>. Of it, <strong>₹90,000 goes to the
+    farm</strong>. <strong>₹10,000 — ten per cent</strong> runs the League: verification, mentoring,
+    the technology platform and the prize pool.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">What you see</div>
+    <div class="v">A named farm and farmer. An online dashboard with the activity log,
+    photographs and the expense ledger. A progress report against every instalment. The farmer's
+    own video messages. And an invitation to the Season 1 awards at Durga Puja 2027.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">Who stands behind it</div>
+    <div class="v"><strong>Bharatiya Krishak Samaj</strong>, founded 3 April 1955 by
+    <strong>Dr Panjabrao S. Deshmukh</strong>, independent India's first Union Agriculture
+    Minister — seven decades for the Indian farmer. Its National President,
+    <strong>Shri Krishan Bir Chaudhary</strong>, sits on the Government of India's
+    <strong>Minimum Support Price Committee</strong>. Delivery is by
+    <strong>KarmYog for the 21<sup>st</sup> Century</strong>, which has run culture-change
+    campaigns at state scale for eighteen years.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">The prizes</div>
+    <div class="v"><strong>₹3 crore</strong> in all — ₹1 crore for the best farm, ₹1 crore for
+    the best regional team, ₹1 crore across other categories. Farms are graded on four
+    dimensions: <strong>Satya, Mangal, Sundar, Samriddhi</strong>.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">The calendar</div>
+    <div class="v">Launched <strong>14 September 2026</strong> by the Hon'ble Minister of
+    Agriculture, Government of West Bengal. Public opening at the
+    <strong>Durga Puja from 16 October 2026</strong>, whose ground is itself the first
+    model farm. Season closes at Durga Puja 2027 with the awards and the All-India launch.</div>
+  </div>
+
+  <div class="xrow">
+    <div class="k">The next step</div>
+    <div class="v">A <strong>twenty-minute call</strong>. No commitment is asked on it. You will
+    be shown the model farm, the dashboard and three applicants from your district.</div>
+  </div>
+
+  <div class="bignum">
+    <div class="n">
+      <span class="fig">₹10 crore</span>
+      <span class="lab">To be raised before Durga Puja 2026<br>— one thousand farms</span>
+    </div>
+    <div class="n gold">
+      <span class="fig">5,000</span>
+      <span class="lab">Smart Integrated Farms<br>across Bengal in Season 1</span>
+    </div>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>Executive Summary · 02</span></div>
+</section>
+
+<!-- ============ 3. THE RETURN ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">Pratyaavartan</div>
+      <h2 style="margin:2mm 0 0">The Return</h2>
+    </div>
+    <div class="t">01 · Why you</div>
+  </div>
+
+  <p class="lead">Most of us did not leave Bengal. We left a village, and Bengal happened to be
+  around it.</p>
+
+  <p>There is a word for the place — <em>vite</em>. The <em>bati</em>. The plot the family
+  held, the pond behind it, the name of the block you still give when an elder asks where you
+  are really from. You may not have stood on it in thirty years. You can still draw it.</p>
+
+  <p>What has happened to those places is not a mystery and it is not anybody's single fault.
+  The young people left, as you left. The land stayed, and got smaller with each division. The
+  ones who remained were told, in a hundred quiet ways, that farming was what you did when
+  nothing else worked out. A boy who wanted to stay had no reason he could say out loud.</p>
+
+  <div class="quote">
+    Agriculture in Bengal did not fail for want of soil, or rain, or hands.
+    It failed for want of <em>prestige</em>.
+  </div>
+
+  <p>That is the specific thing this programme sets out to change, and it is why it takes the
+  shape of a league rather than a scheme. A subsidy makes a farmer solvent for a year. A
+  championship makes farming something a young person in Bengal might actually <em>want</em> —
+  with a team, a table, a season, a name that gets read out.</p>
+
+  <p><strong>Pratyaavartan</strong> means homecoming. Not the aeroplane kind. It is the idea
+  that a place can find its way back to the direction it had, and that the people who left it
+  are not disqualified from helping — that in fact they may be the only ones with both the
+  distance to see it clearly and the means to do something.</p>
+
+  <p>You are not being asked for charity. Charity flows down. This is closer to what an elder
+  in the family used to do for a promising nephew — you back the young person, you stay
+  interested, you ask how it went. The money matters. Being watched by someone who left and
+  still cares matters more than we can put in a table.</p>
+
+  <div class="note">
+    <span class="h">What this is not</span>
+    <p>This is not a donation to a general fund, and you are not buying a product. You are
+    supporting one named agri-entrepreneur who is setting up a Smart Integrated Farm, and you
+    will be able to see, month by month, exactly what happened on that piece of land.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>The Return · 03</span></div>
+</section>
+
+<!-- ============ 4. WHY NOW ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">The moment</div>
+      <h2 style="margin:2mm 0 0">Why this year and not another</h2>
+    </div>
+    <div class="t">02 · Why now</div>
+  </div>
+
+  <p class="lead">Three things have come together in 2026 that have not been true at the same
+  time before.</p>
+
+  <div class="two" style="margin-bottom:7mm">
+    <div>
+      <h3>One — the governments are aligned</h3>
+      <p>For the first time in <strong>nearly five decades</strong>, the government in West Bengal
+      and the government at the Centre are working in the same direction. Whatever one thinks of
+      any party — and Bharatiya Krishak Samaj takes no position on any — agricultural reform is
+      one of the few fields where that alignment translates directly into what a farmer can
+      actually reach: schemes that arrive, approvals that move, institutions that answer.</p>
+      <p>A window like this stays open for a few years, not forever. The work should be done
+      inside it.</p>
+    </div>
+    <div>
+      <h3>Two — agriculture never got its league</h3>
+      <p>Cricket had the IPL. Music had Sa Re Ga Ma Pa. Dance had Dance India Dance. Each of
+      them changed what an ordinary family thought was a respectable thing for a child to spend
+      a decade on.</p>
+      <p>Agriculture — the one occupation that feeds the rest — has never had its equivalent.
+      No table, no season, no tournament, no moment where the country watched. That absence is
+      not a small thing. It is most of the reason a talented nineteen-year-old in Bankura does
+      not consider the land in front of him.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:2.5mm">Three — the technology finally makes it honest</h3>
+  <p>A programme like this was not practical ten years ago, because it could not be
+  <em>watched</em>. A supporter in Bengaluru had no way to know whether a farm eight hundred
+  kilometres away existed, or whether the money reached the soil.</p>
+  <p>That has changed. Farm activity can be logged with photographs and video, dated and
+  located. Expenses can be recorded against activity and published to a ledger. AI can process
+  the volume of evidence that five thousand farms will generate and flag what does not
+  reconcile. This is the first year one could promise a supporter continuous sight of a farm and
+  actually mean it — which is why the promise is made plainly in this document and not hedged.</p>
+
+  <div class="green-panel" style="margin-top:7mm">
+    <div class="eyebrow">The deadline is not ours</div>
+    <p style="margin-bottom:0">Durga Puja is a fixed date. It cannot be pushed for a delayed
+    approval or a slow quarter. That is precisely why the whole three-year journey is pinned to
+    it — <strong>Puja 2026</strong> to launch, <strong>Puja 2027</strong> to award, <strong>2028</strong>
+    for what Bengal has become. A project without a non-negotiable milestone drifts. This one
+    cannot.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>Why Now · 04</span></div>
+</section>
+
+<!-- ============ 5. BKS CREDENTIALS ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">Credentials · I</div>
+      <h2 style="margin:2mm 0 0">Bharatiya Krishak Samaj</h2>
+    </div>
+    <div class="t">Since 1955</div>
+  </div>
+
+  <p class="lead">On <strong>3 April 1955</strong>, Dr Panjabrao S. Deshmukh — independent
+  India's first Union Minister of Agriculture — founded a farmers' body and deliberately kept
+  it outside party politics, so that it could argue with any government of the day.</p>
+
+  <p>Seven decades later it is one of India's leading non-partisan farmers' organisations. It
+  is not a political party and it is not a government scheme. It has spent that time in the
+  unglamorous middle ground: on committees, in consultations, in the drafting of the rules that
+  decide what a farmer is paid.</p>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:3mm">National President — Shri Krishan Bir Chaudhary</h3>
+  <ul>
+    <li><strong>Member, Minimum Support Price Committee, Government of India</strong> — the body
+    that advises on the prices at which the country procures its food</li>
+    <li>Former <strong>Chairman, State Farms Corporation of India</strong></li>
+    <li>Former <strong>Chairman, Indian Sugarcane Development Council</strong>, Government of India</li>
+    <li>Founder of the <strong>Small Farmers' Agribusiness Consortium (SFAC)</strong></li>
+    <li>Former <strong>Director, NAFED</strong></li>
+  </ul>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:3mm">The National Advisory Board</h3>
+  <p style="margin-bottom:3mm">The people who advise this organisation are the people who used
+  to run Indian agriculture.</p>
+  <table>
+    <tr><td style="width:52mm"><strong>Dr R.S. Paroda</strong></td>
+        <td>Former Director General, Indian Council of Agricultural Research (ICAR)</td></tr>
+    <tr><td><strong>Siraj Hussain, IAS (Retd.)</strong></td>
+        <td>Former Secretary, Ministry of Agriculture, Government of India</td></tr>
+    <tr><td><strong>Ashish Bahuguna, IAS (Retd.)</strong></td>
+        <td>Former Chairman, Food Safety and Standards Authority of India</td></tr>
+    <tr><td><strong>Dr Baldev Singh Dhillon</strong></td>
+        <td>Vice Chancellor (Retd.), Punjab Agricultural University</td></tr>
+    <tr><td><strong>Gopa Sabharwal</strong></td>
+        <td>Vice Chancellor (Retd.), Nalanda University</td></tr>
+  </table>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:3mm">The West Bengal Chapter</h3>
+  <p>Established in <strong>June 2026</strong> at the direction of the National President.
+  <strong>Mahacharya Sourabh J. Sarkar</strong> was appointed State President on 1 September
+  2026, and <strong>Mrs Rinku Majumder Ghosh</strong> Head of the Mahila Mandal on the same
+  date. The Krishi Ratna League is the chapter's first major undertaking.</p>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>Bharatiya Krishak Samaj · 05</span></div>
+</section>
+
+<!-- ============ 6. KARMYOG CREDENTIALS ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">Credentials · II</div>
+      <h2 style="margin:2mm 0 0">KarmYog for the 21<sup>st</sup> Century</h2>
+    </div>
+    <div class="t">Delivery</div>
+  </div>
+
+  <p class="lead">Bharatiya Krishak Samaj brings seven decades of standing with the Indian
+  farmer. KarmYog brings the thing that is harder to buy: a record of actually changing how
+  large numbers of people behave.</p>
+
+  <p>KarmYog was founded in 2008 by <strong>Mahacharya Sourabh J. Sarkar</strong> — B.Tech, IIT
+  Kharagpur, 1990; M.A. in Education and New Media, S.I. Newhouse School, Syracuse University —
+  who left a corporate career to build it. Its subject has always been the same one: how a
+  population changes a habit.</p>
+
+  <div class="rule"></div>
+
+  <div class="two">
+    <div class="card">
+      <h3>Kolkata Jaago — Safe Drive Save Life</h3>
+      <p>Road-safety culture change across the city. Reached <strong>300+ schools</strong> and
+      roughly <strong>one lakh taxi drivers</strong> in Kolkata.</p>
+      <p>This is the closest precedent to what the Krishi Ratna League has to do: take a
+      behaviour everybody defends out of habit, and shift it — at the scale of a state, in
+      Bengali, through the people who already have the trust.</p>
+    </div>
+    <div class="card">
+      <h3>Jeevan-Jeevika Abhiyaan — farmers, already</h3>
+      <p>Mass behaviour-change campaigns for farmers in Odisha through the
+      <strong>SRI farming technique</strong>; informal-sector workers in Rajasthan; vocational
+      trainees in Maharashtra; health workers in Howrah; safai karmacharis in Mumbai.</p>
+      <p>The Odisha work matters most here. Persuading farmers to change a planting method they
+      inherited is the same problem as KRL, solved once already.</p>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:6mm">
+    <div class="card">
+      <h3>OmniDEL — recognised, then funded</h3>
+      <p><strong>NSDC Best Learning Methodology Award, 2014.</strong> A
+      <strong>million-dollar grant from TATA Trusts, 2015.</strong></p>
+      <p>Today OmniDEL is at the forefront of <strong>Agentic AI for informal-sector
+      transformation</strong> — which is the capability the League's verification and
+      transparency layer is built on.</p>
+    </div>
+    <div class="card">
+      <h3>Growing things, at scale, on bad land</h3>
+      <p><strong>KarmYog Green Village</strong>, 2015 to date: roughly <strong>12 acres</strong>
+      of HIDCO wasteland turned into a working eco-village — <strong>2,000+ fruit-bearing
+      trees</strong>, pesticide-free vegetable production, training facilities.</p>
+      <p><strong>50+ biophilic designs</strong> and <strong>7+ Vatikas</strong> built across
+      Kolkata, Patna and Goa. Named a biophilic pioneer in India at ABID Expo 2024.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="h">Why this pairing is the point</span>
+    <p>A farmers' organisation with seven decades of institutional standing, and a movement with
+    eighteen years of getting ordinary people to do something differently. Either one alone has
+    tried this before and stalled. The reason to believe the Krishi Ratna League will run is
+    that both halves of the problem have an owner.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>KarmYog · 06</span></div>
+</section>
+
+<!-- ============ 7. THE LEAGUE ============ -->
+<section class="page tight league">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">The mechanism</div>
+      <h2 style="margin:2mm 0 0">The Krishi Ratna League</h2>
+    </div>
+    <div class="t">03 · Bengal, Season 1</div>
+  </div>
+
+  <img class="krl-inline" src="assets/krl-logo-t.png" alt="Krishi Ratna League — Bengal">
+
+  <p class="lead">Take the format that made a nation watch cricket for two months a year, and
+  point it at farming.</p>
+
+  <p>West Bengal's <strong>294 assembly constituencies</strong> are grouped into roughly
+  <strong>15 regional teams</strong> — a franchise here is a group of constituencies, not a
+  cricket side. Selected young farmers in each constituency build their farms through the
+  season. Every farm carries its own marks; a team's score is the aggregate of its farms. There
+  is a table, and it moves.</p>
+
+  <h3 style="margin:6mm 0 3mm">How a farm is graded</h3>
+  <div class="dim">
+    <div class="d"><span class="w">30%</span>
+      <div class="nm">Satya</div><div class="en">Truth</div>
+      <p>Organic cultivation. No chemical dependency, no pesticides. Transparent, dated evidence
+      of what was actually done on the land.</p></div>
+    <div class="d"><span class="w">25%</span>
+      <div class="nm">Mangal</div><div class="en">Goodness</div>
+      <p>Good for human health, for the soil, for the surrounding environment and its ecosystem —
+      not only for the yield.</p></div>
+    <div class="d"><span class="w">20%</span>
+      <div class="nm">Sundar</div><div class="en">Beauty</div>
+      <p>Natural aesthetic quality, considered design, harmony with the land. A farm should be
+      a place one would want to stand in.</p></div>
+    <div class="d"><span class="w">25%</span>
+      <div class="nm">Samriddhi</div><div class="en">Prosperity</div>
+      <p>Economic viability, productivity, sustainable income, efficient use of whatever
+      resources the farmer actually has.</p></div>
+  </div>
+
+  <p style="font-size:9.4pt"><strong>Qualification gate:</strong> a farm must be
+  <strong>100% chemical and pesticide free</strong> to be scored at all. AI-assisted monitoring
+  supports the farmer through the year and records progress; a jury grades the farms.</p>
+
+  <h3 style="margin:5mm 0 3mm">The prize pool</h3>
+  <table>
+    <tr><td style="width:78mm"><strong>Best individual farm</strong> — the most prosperous farm in Bengal</td><td class="num"><strong>₹1,00,00,000</strong></td></tr>
+    <tr><td><strong>Best regional team</strong> — highest aggregate across 300–400 farms</td><td class="num"><strong>₹1,00,00,000</strong></td></tr>
+    <tr><td><strong>Category awards</strong> — innovation and other categories</td><td class="num"><strong>₹1,00,00,000</strong></td></tr>
+    <tr class="total"><td>Total prize pool, Season 1</td><td class="num">₹3,00,00,000</td></tr>
+  </table>
+
+  <p style="font-size:8.6pt; line-height:1.45; color:var(--ink-mute); margin-bottom:0">The team
+  prize exists on purpose: a farmer in Purulia has a reason to help a farmer two constituencies
+  away, because their marks are added together. The League is built to produce cooperation, not
+  only winners.</p>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>The League · 07</span></div>
+</section>
+
+<!-- ============ 8. THE FARM ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">What gets built</div>
+      <h2 style="margin:2mm 0 0">The Smart Integrated Farm</h2>
+    </div>
+    <div class="t">04 · On small land</div>
+  </div>
+
+  <p class="lead">Old Indian practice, mixed with modern technology, on land small enough that
+  an ordinary family actually has it.</p>
+
+  <p>The central claim of the Krishi Ratna League is not that Bengal needs bigger farms. It is
+  that a <strong>prosperous</strong> farm can run on <strong>one to four bigha</strong> if the
+  design is right — integrated so that each element feeds another, organic by requirement,
+  instrumented so the farmer can see what is working, and planned for income rather than
+  subsistence.</p>
+
+  <p>Saying "I am farming" is not enough to be selected. The applicant has to design something.
+  That is the filter, and it is deliberately a high one.</p>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:3mm">Munshi Bheri — the proof, built first</h3>
+  <p>Before asking five thousand young people to do it, we are doing it once, in public, on the
+  worst possible land.</p>
+  <p><strong>Munshi Bheri</strong>, in the <strong>East Kolkata Wetlands</strong>, was a dump
+  yard. Over roughly six weeks it is being turned into the first model Smart Integrated Farm —
+  about <strong>1.5 acres, four and a half to five bigha</strong>. It is a learning farm:
+  everything on it is meant to be copied.</p>
+  <p>And it is the Durga Puja ground. The <strong>Durga Puja 2026 theme is Krishi Samaj — for
+  the farmers</strong>, and the pandal stands on the farm itself. Lakhs of people will walk
+  through a working integrated farm during the Puja without having planned to learn anything.
+  That is the awakening — <em>Jagaran</em> — and it is the reason the League launches at a Puja
+  and not at a conference.</p>
+
+  <div class="green-panel" style="margin-top:6mm">
+    <div class="eyebrow">Jagaran → Jijnasa → Adhyayan → Sadhana</div>
+    <p style="margin-bottom:0">Awakening leads to a question. The question leads to study. Study
+    becomes disciplined practice. It is the sequence the whole three-year journey is built on,
+    and it is why the Puja ground had to be a real farm rather than a decorated one — a person
+    who walks through and asks <em>how</em> has already taken the first step.</p>
+  </div>
+
+  <div class="note">
+    <span class="h">Said plainly</span>
+    <p>Some of the League's finer structure is still being settled — the exact number of farms
+    per constituency, the final team map, the detailed marking rubric and the jury. Those are
+    marked as not final wherever they appear, here and on the website, and they will be
+    published when they are fixed rather than described before.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>The Farm · 08</span></div>
+</section>
+
+<!-- ============ 9. THE OFFER ============ -->
+<section class="page tight">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">Your part</div>
+      <h2 style="margin:2mm 0 0">What supporting one farm means</h2>
+    </div>
+    <div class="t">05 · The offer</div>
+  </div>
+
+  <p class="lead">One supporter. One agri-entrepreneur. One season. ₹1,00,000.</p>
+
+  <table style="margin-bottom:6mm">
+    <tr><td style="width:82mm">Total support for one farm, one season</td><td class="num"><strong>₹1,00,000</strong></td></tr>
+    <tr><td>Paid as five monthly instalments of ₹20,000</td><td class="num">5 × ₹20,000</td></tr>
+    <tr><td><strong>To the farm</strong> — seed capital for the young entrepreneur</td><td class="num"><strong>₹90,000</strong></td></tr>
+    <tr><td><strong>To the League</strong> — verification, mentoring, technology, prize pool</td><td class="num"><strong>₹10,000</strong></td></tr>
+    <tr class="total"><td>Proportion reaching the land</td><td class="num">90%</td></tr>
+  </table>
+
+  <p style="font-size:9.4pt; margin-bottom:6mm">We would rather print the ten per cent than bury
+  it. Running a verified championship across 294 constituencies costs something, and a
+  supporter is entitled to know exactly what. Ten per cent is what it costs. The remaining
+  ninety goes into the ground.</p>
+
+  <div class="rule"></div>
+
+  <div class="two">
+    <div>
+      <h3>How you choose</h3>
+      <p style="font-size:9.6pt">You tell us the district — normally the one your family comes
+      from. We send you <strong>three applicants</strong> from it, with their profiles and what
+      each intends to build. <strong>You pick one.</strong></p>
+      <p style="font-size:9.6pt">If your district has more supporters than applicants in a
+      given round, we will say so and offer you the neighbouring blocks rather than quietly
+      moving you.</p>
+    </div>
+    <div>
+      <h3>What you receive, monthly</h3>
+      <ul style="margin-bottom:0">
+        <li>A named farm and the farmer's profile</li>
+        <li>An online dashboard — activity log, photographs, expense ledger</li>
+        <li>Progress reported against each of the five instalments</li>
+        <li>The farmer's own video messages</li>
+        <li>Invitation to the Season 1 awards, Durga Puja 2027</li>
+        <li>A certificate of support; the farm may carry your <em>vite</em>, or a parent's name</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="two">
+    <div>
+      <h3>If you want to go further</h3>
+      <p style="font-size:9.4pt">Some supporters will want to do more than one season with a
+      young person who is clearly good. A path from support into a genuine partnership or
+      investment is being designed. <strong>It has no terms yet, and we will not invent any
+      here.</strong> When it exists, you will be among the first told.</p>
+    </div>
+    <div>
+      <h3>You may support more than one farm</h3>
+      <p style="font-size:9.4pt">Several supporters have asked about backing a group of farms in
+      one block, or a whole panchayat. That is possible and it is worth a conversation rather
+      than a price list — the practicalities differ by district. Raise it on the call.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="h">Tax</span>
+    <p>KarmYog for the 21<sup>st</sup> Century Foundation holds <strong>80G</strong>
+    registration, so Indian taxpayers can claim the applicable deduction. Your receipt is issued
+    against the Foundation.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>The Offer · 09</span></div>
+</section>
+
+<!-- ============ 10. TRANSPARENCY ============ -->
+<section class="page tight">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">The uncomfortable page</div>
+      <h2 style="margin:2mm 0 0">What we promise, and what we do not</h2>
+    </div>
+    <div class="t">06 · Transparency</div>
+  </div>
+
+  <p class="lead">Everyone who has been asked for money from abroad, or from the next city, has
+  the same two questions. Here they are answered before you ask them.</p>
+
+  <div class="rule-gold"></div>
+
+  <h3 style="margin-bottom:2.5mm">"How do I know the farm is real?"</h3>
+  <p>Because you will watch it. Farm activity is logged with dated photographs and video.
+  Expenses are recorded against that activity and published to a ledger you can open. AI
+  processes the volume and flags what does not reconcile; human corrections stay visible rather
+  than overwriting the record. Every rupee has a record, every record has a date, and the
+  farm's own evidence sits next to its accounts.</p>
+  <p>The principle the platform is built on is one sentence:
+  <strong>what happens on the farm should be documentable and traceable.</strong></p>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:2.5mm">"What if the farm fails?"</h3>
+  <p>Then it fails, and you will see that happen too.</p>
+  <p>This is a real farm, run by a real young person, against weather and pests and markets and
+  their own inexperience. <strong>The farmer will do his best and so will we. We cannot
+  guarantee success — no one honestly can.</strong> Anyone who offers you a guaranteed
+  agricultural outcome is either not telling you the truth or has not farmed.</p>
+  <p>What we do guarantee is that a struggling farm will not quietly disappear from your
+  dashboard. You will see the bad month. You will see what was tried. A supporter who is told
+  only the good news has not been given transparency, only marketing — and this programme is
+  going to be asking people for money for three years, which is far too long to be caught
+  doing that.</p>
+
+  <div class="rule"></div>
+
+  <h3 style="margin-bottom:2.5mm">Where the money sits</h3>
+  <p>Funds are received by <strong>KarmYog for the 21<sup>st</sup> Century Foundation</strong>,
+  which holds <strong>80G</strong> registration. Bharatiya Krishak Samaj and KarmYog are jointly
+  responsible for evaluating applicants so that the money is not wasted — that evaluation is the
+  main thing the ten per cent buys.</p>
+
+  <div class="note">
+    <span class="h">Supporters holding foreign passports or OCI cards — please read</span>
+    <p>The Foundation currently holds 80G but <strong>does not yet hold FCRA registration</strong>,
+    which is what Indian law requires before an organisation may receive a contribution from a
+    foreign source. Under FCRA, an OCI cardholder or foreign passport holder is treated as a
+    foreign source regardless of where they were born.</p>
+    <p>So at this moment the invitation in this document is to <strong>resident Indians</strong>
+    and to <strong>Non-Resident Indians holding Indian passports</strong>. If you hold a foreign
+    passport or an OCI card, please <strong>register your interest</strong> — FCRA registration
+    is being pursued and we will come back to you the moment it is in place. We would rather
+    tell you this on page ten than take your money incorrectly.</p>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>Transparency · 10</span></div>
+</section>
+
+<!-- ============ 11. THE ARC ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">The journey</div>
+      <h2 style="margin:2mm 0 0">Three Pujas</h2>
+    </div>
+    <div class="t">07 · 2026 – 2028</div>
+  </div>
+
+  <p class="lead">Every milestone is a Durga Puja, because a Puja cannot be postponed.</p>
+
+  <div class="timeline">
+    <div class="tl">
+      <div class="d">14 September 2026<span>Launch</span></div>
+      <div class="b">The Krishi Ratna League is launched by the <strong>Hon'ble Minister of
+      Agriculture, Government of West Bengal, Shri Dudh Kumar Mondal</strong>, with the
+      <strong>Hon'ble Minister of State for Agriculture &amp; Horticulture, Shri Amaya
+      Kisku</strong>. Applications open.</div>
+    </div>
+    <div class="tl">
+      <div class="d">10 October 2026<span>Mahalaya</span></div>
+      <div class="b">The model farm at Munshi Bheri is complete. Six weeks earlier it was a
+      dump yard.</div>
+    </div>
+    <div class="tl">
+      <div class="d">From 16 October 2026<span>Durga Puja</span></div>
+      <div class="b"><strong>The Puja whose theme is Krishi Samaj — for the farmers.</strong>
+      The pandal stands on the working farm. The League opens to the public here, and Season 1
+      begins.</div>
+    </div>
+    <div class="tl">
+      <div class="d">2026 – 2027<span>Season 1</span></div>
+      <div class="b"><strong>5,000 Smart Integrated Farms</strong> across 294 constituencies,
+      built, mentored, verified and graded through the year. This is the season your farm runs
+      in.</div>
+    </div>
+    <div class="tl">
+      <div class="d">Durga Puja 2027<span>Awards</span></div>
+      <div class="b"><strong>Krishi Ratna League Season 1 awards</strong> — ₹3 crore, the best
+      farm, the best team. On the same stage, the <strong>All-India Krishi Ratna League</strong>
+      is launched. You are invited.</div>
+    </div>
+    <div class="tl">
+      <div class="d">2028<span>Pratyaavartan</span></div>
+      <div class="b">All-India results. The Bengal model, complete enough to be pointed at.
+      <strong>Bengal comes home.</strong></div>
+    </div>
+  </div>
+
+  <div class="bignum" style="margin-top:8mm">
+    <div class="n">
+      <span class="fig">₹10 crore</span>
+      <span class="lab">The ask before Durga Puja 2026<br>1,000 farms funded</span>
+    </div>
+    <div class="n gold">
+      <span class="fig">₹50 crore</span>
+      <span class="lab">Full Season 1<br>5,000 farms</span>
+    </div>
+  </div>
+
+  <p style="font-size:9pt; margin-top:5mm; color:var(--ink-mute)">The League will also seek
+  title and associate sponsors for the event itself. The supporter programme and the sponsorship
+  programme are kept separate: your ₹1,00,000 follows one named farm, and is accounted for
+  against that farm.</p>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>Three Pujas · 11</span></div>
+</section>
+
+<!-- ============ 12. HOW TO BEGIN ============ -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <div class="eyebrow green">One step</div>
+      <h2 style="margin:2mm 0 0">How to begin</h2>
+    </div>
+    <div class="t">08 · Next</div>
+  </div>
+
+  <p class="lead">There is only one thing to do next, and it costs twenty minutes.</p>
+
+  <div class="cta-box">
+    <div class="step">
+      <div class="i">1</div>
+      <div class="c">
+        <h3>Book a twenty-minute call</h3>
+        <p>No commitment is asked on it. Tell us the district your family comes from. We will
+        walk you through the model farm at Munshi Bheri, open the dashboard in front of you, and
+        answer whatever you want to press on.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="i">2</div>
+      <div class="c">
+        <h3>We send you three applicants</h3>
+        <p>Real young women and men from your district, with their profiles and what each
+        intends to build. You choose the one you want to stand behind.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="i">3</div>
+      <div class="c">
+        <h3>The season begins at the Puja</h3>
+        <p>Five monthly instalments of ₹20,000. A dashboard that stays open. An invitation to
+        the awards at Durga Puja 2027 — where you may meet the person you backed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div class="c">
+      <h3>To arrange the call</h3>
+      <p><strong>Bharatiya Krishak Samaj — West Bengal</strong><br>
+      F-127, Downtown Mall, Uniworld City<br>
+      New Town, Kolkata 700156<br><br>
+      +91 86552 46764<br>
+      contact@bkswbengal.org<br>
+      www.bkswbengal.org</p>
+    </div>
+    <div class="c">
+      <h3>More detail, and the farms</h3>
+      <p>The full League structure, the model farm as it is built, the applicant districts and
+      the dashboard are all on the programme site.<br><br>
+      <strong>Pravasi Krishi Bandhu</strong><br>
+      <span style="color:var(--gold)">pravasi-krishi-bandhu.vercel.app</span></p>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="nm">Mahacharya Sourabh J. Sarkar</div>
+    <div class="ti">State President, Bharatiya Krishak Samaj — West Bengal<br>
+    Founder, KarmYog for the 21<sup>st</sup> Century</div>
+  </div>
+
+  <div class="quote" style="margin-top:6mm; margin-bottom:0">
+    You left. The village did not.<br>Stand behind one young person in it, for one season.
+    <span class="attr">Pravasi Krishi Bandhu · প্রবাসী কৃষি বন্ধু</span>
+  </div>
+
+  <div class="folio"><span>Pravasi Krishi Bandhu</span><span>How to Begin · 12</span></div>
+</section>
+
+</body>
+</html>
