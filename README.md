@@ -11,27 +11,44 @@ Joint **Bharatiya Krishak Samaj** × **KarmYog for the 21st Century**.
 
 ---
 
-## ⚠️ Known issue — the site needs a visual redesign
+## 🔴 The PDFs are STALE — do not circulate them
 
-The current site uses a warm cream / earth palette (`#f6f1e4` paper, `#163a26` green,
-`#c98a1f` gold) lifted from the BKS West Bengal site. **MahAcharyaJi's verdict (12 Sep 2026):
-"dull and boring, very Claude — the colours are the Claude colours."** That is a fair call —
-cream-and-warm-earth is Claude's own brand aesthetic, and it reads as a quiet institutional
-document rather than a *league*.
+**The website is at v2. `Pravasi-Krishi-Bandhu.pdf` and `Pravasi-Krishi-Bandhu-3page.pdf` are
+still v1** and now contradict the site on material points: the money split, the qualification
+gate, the awards date, the FCRA framing, the CTA, and Deshmukh's title. The Drive copies are the
+same v1.
 
-**Direction for whoever picks this up:**
+**Regenerate both from `FACTS.md` before any of them goes out.** Until then the website is the
+only current artifact.
 
-- The reference to match is **`BKS-Bengal/krl-bengal-launch`** (live at
-  https://krl-bengal-launch.vercel.app/en — tagline *"Bengal's next great contest"*).
-  There is already a KRL visual identity in production. Match it; do not invent a third.
-- The KRL logo is **deep blue + gold wheat + green leaf**. A palette built from that blue
-  would be far more distinctive than the current cream, and would sit correctly next to the
-  logo instead of fighting it.
-- This should feel like a **sports league** — contest energy, a table that moves, teams — not
-  like an annual report. The copy already carries that; the design does not yet.
-- What must survive any redesign: the honesty of the money table (90/10 split visible), the
-  FCRA notice, and the "what we do not promise" section. Those are the credibility of the
-  whole piece.
+## Site v2 — 13 September 2026
+
+**Palette.** v1 used a cream / warm-earth palette lifted from the BKS West Bengal site.
+MahAcharyaJi's verdict (12 Sep): *"dull and boring, very Claude — the colours are the Claude
+colours."* Fair — cream-and-warm-earth is Claude's own brand aesthetic, and it read as an annual
+report rather than a league. v2 is built on the **KRL mark's own deep blue** (`#1B3A7A` /
+`#0A1730`) with wheat gold (`#C8901F`) and leaf green (`#3E8E35`). Still worth a pass against
+`BKS-Bengal/krl-bengal-launch` (*"Bengal's next great contest"*) so the two KRL properties
+converge.
+
+**Full Bengali.** EN/BN toggle in the header, every block translated, Bengali numerals in Bengali
+mode, Noto Sans Bengali. Choice persists in `localStorage`; a `bn-*` browser locale defaults to
+Bengali.
+
+**Sammy's 13 Sep revisions, all in:** ₹1 Lakh stated explicitly with the USD equivalent · *vite* →
+**bheete (ভিটে)** · "thirty years" → "many decades" · *aspiration* as the anchor word · 15 teams
+stated firmly · "verification layer" → **Support & Verification** · Sthapana / BangaManthan /
+RashtraManthan roadmap moved to the top · MahAcharyaJi credited as State President · entities
+backgrounded to "We are 80G registered" · money split broken out 90 / 6 / 2 / 2 · Sundar tied to
+agro-tourism and Samriddhi to Technology · gate reworded to **harmful** chemicals with local and
+herbal solutions · awards moved to **before** Durga Puja 2027 · farm choice by bheete
+(village / block / P.O. / P.S.) · failure reframed as **struggle** · FCRA reframed positively ·
+CTA is now **Raise Your Hand** with the call as follow-up · five outbound links added.
+
+**Two things still needed from you:** the **photographs** (two marked slots are live on the page —
+an ancestral bheete, and the Munshi Bheri pandal on the working farm) and the **explanatory video
+URLs**. Use real photographs, not stock or AI — this is a fundraising page about a real Puja and
+real people.
 
 ---
 

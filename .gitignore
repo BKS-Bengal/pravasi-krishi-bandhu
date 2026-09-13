@@ -13,3 +13,7 @@ site/
 
 node_modules/
 *.log
+
+# qa screenshots
+qa-site/
+_commitmsg.txt

@@ -24,7 +24,12 @@ No artifact may introduce a number that does not appear here. If a fact is not h
 
 **Bharatiya Krishak Samaj (BKS)**
 - Masthead name: **Bharatiya Krishak Samaj** — LOCKED (S6)
-- Founded **3 April 1955** by **Dr Panjabrao S. Deshmukh**, independent India's first Union Agriculture Minister (S4)
+- Founded **3 April 1955** by **Dr Panjabrao S. Deshmukh**, **Union Minister for Agriculture from 1952** (S4)
+- ⛔ **Print NO ordinal.** I originally wrote "first"; Sammy's 12 Sep review said "third". Sources
+  disagree — the portfolio was *Food and Agriculture*, and depending on whether the interim
+  government counts and how Jairamdas Daulatram → K.M. Munshi → Rafi Ahmed Kidwai are handled, he
+  lands anywhere from first Cabinet Minister for Agriculture to fourth. **Ordinal removed from
+  every artifact** until someone supplies a citable source. (Decision 13 Sep 2026)
 - Printed as: **"Since 1955 — seven decades for the Indian farmer"**
 - ⛔ NEVER print "75 years". 1955→2026 = 71 years. (S6 accepted recommendation)
 - Non-partisan farmers' organisation. Not a political party. Not a government scheme.
@@ -105,7 +110,13 @@ on small land; they are mentored, verified, graded through the year; the best fa
 
 `Final Score = (Satya × 0.30) + (Mangal × 0.25) + (Sundar × 0.20) + (Samriddhi × 0.25)`
 
-**Qualification gate:** 100% chemical / pesticide free.
+**Qualification gate (revised 13 Sep):** free of **harmful chemicals and harmful pesticides**,
+with emphasis on **local and herbal solutions**. ⛔ No longer printed as "100% chemical /
+pesticide free" — the word **harmful** is deliberate and must stay.
+
+**Sundar** is explicitly tied to **agro-tourism** (a farm people travel to see, and a second
+income). **Samriddhi** is explicitly tied to **Technology** and framed around the
+**Smart Integrated Farm** — tradition and modernity together, local and global together. (S7)
 ⚠️ The detailed rubric, evidence standard, auditor roles and dispute process are NOT yet defined. Do not invent them.
 
 ### Prizes (S1, S2)
@@ -129,10 +140,22 @@ on small land; they are mentored, verified, graded through the year; the best fa
 |---|---|
 | Total support per farm | **₹1,00,000** |
 | Structure | **5 monthly instalments of ₹20,000** — LOCKED (S6, monthly not bi-monthly) |
-| **To the farm** | **₹90,000** |
-| **To the League** (verification, mentoring, technology platform, prize pool) | **₹10,000 — 10%** |
+| **To the farm** | **₹90,000 — 90%** |
+| **Prize money** (into the ₹3 crore Season 1 pool) | **₹6,000 — 6%** |
+| **Support & verification, technology, coordination, training, mobilisation, events** | **₹2,000 — 2%** |
+| **Administration** | **₹2,000 — 2%** |
 | Currency | INR only (S6) |
 | Choice of farmer | Supporter is shown **3 farmers**; selects one (S6) |
+
+⚠️ **The 6/2/2 split is my reading of Sammy's 13 Sep instruction and is NOT yet confirmed.**
+She wrote: "Prize Money (6%) as a separate row" + "administrative costs at 4% (among the lowest),
+showing verification, tech, coordination, training, mobilization, and events take 2%." That does
+not sum as written. I read it as: non-farm 10% = 6% prize + 2% operations + 2% administration, so
+"administration and everything around it = 4%". **Confirm before this circulates.**
+
+**How the supporter chooses (revised 13 Sep):** not by district — by **bheete (ভিটে)**. The
+supporter gives the **village, block, post office and police station** of the ancestral home, and
+we find applicants as close to it as possible.
 
 **What the supporter receives** — all directly trackable (S6):
 - Named farm and farmer profile
@@ -163,8 +186,13 @@ as a partnership or investment. **Under design. Mention it; state no terms.** (S
 - **Therefore, in print, the invitation is to:**
   - Resident Indians (Kolkata, Bengaluru, Mumbai, Delhi — anyone who left their village)
   - Non-Resident Indians holding **Indian passports**, giving through normal banking channels
-- **OCI / foreign-passport supporters:** invite them to **register their interest**; state that FCRA
-  registration is being pursued and we will return to them when it is in place.
+- **OCI / foreign-passport supporters:** invite them to **register their interest**.
+- **Framing (revised 13 Sep — S7): positive, not apologetic.** "Our FCRA documentation is being
+  processed. So raise your hand today — register your interest, tell us your bheete, and we will
+  come to you with your three applicants as soon as FCRA is in place." ⛔ Do not lead with the
+  restriction; lead with the invitation.
+- **Entity names stay in the background (S7).** Say **"We are 80G registered"** — not "KarmYog for
+  the 21st Century Foundation holds 80G". Keep remittance mechanics off the page entirely.
 - ⛔ **DO NOT PRINT** any instruction to route foreign money through an Indian resident or NRI.
   That is a compliance conversation for a call, never for a published document under a masthead
   carrying a sitting MSP Committee member's name. (Agreed with user, 12 Sep 2026)
@@ -179,8 +207,18 @@ as a partnership or investment. **Under design. Mention it; state no terms.** (S
 | **10 October 2026** | Mahalaya |
 | **~16 October 2026** | Durga Puja begins. Theme: **Krishi Samaj — for the farmers** |
 | Puja 2026 → Puja 2027 | KRL Bengal Season 1 runs |
-| **Durga Puja 2027** | Season 1 awards **+ All-India KRL launch** |
-| 2028 | All-India results |
+| **BEFORE Durga Puja 2027** | Season 1 awards **+ All-India KRL launch**. ⛔ Deliberately held **before** the Puja so Pravasi Bandhus can attend the ceremony and then travel on to their own bheete for the Pujo. (S7) |
+| Durga Puja 2028 | The Bengal Model established across India |
+
+## 6a. THE THREE-YEAR ROADMAP — named phases, stated UPFRONT (S7)
+
+| Year | Phase | Meaning |
+|---|---|---|
+| 2026 | **Sthapana (স্থাপনা)** | Establishment — KRL launches on a working model farm; applications open across 294 constituencies; first 5,000 farms begin |
+| 2027 | **BangaManthan (বঙ্গমন্থন)** | Scaling across Bengal — Season 1 graded and awarded before Puja; model carried into every district |
+| 2028 | **RashtraManthan (রাষ্ট্রমন্থন)** | Scaling across India — the Bengal Model established nationally by Durga Puja 2028 |
+
+This roadmap must appear **near the top** of every artifact, not buried at the end.
 
 ⚠️ Verify "Dudh Kumar Mondal" spelling with user before final print. Sworn in 1 June 2026; MLA, Mayureswar.
 ⚠️ "Amaya Kisku" — spelling supplied directly by user, 12 Sep 2026.
@@ -213,7 +251,45 @@ as a partnership or investment. **Under design. Mention it; state no terms.** (S
 - BKS is **non-political**. Do not campaign for any party under this programme.
 - English first. Bengali companion is phase two. (S6)
 - Masthead: **joint KarmYog + Bharatiya Krishak Samaj**. (S6)
-- Call to action: **book a 20-minute call** + visit the website. One action. (S6)
+- **Call to action (revised 13 Sep — S7): "Register Interest / Raise Your Hand" FIRST.** The
+  20-minute call is the *follow-up*, not the entry point. Nothing is asked at the raise-hand stage
+  except interest and the bheete — no payment, no commitment.
+- **Language (S7): full Bengali switchable version is live**, not a phase-two promise. EN/BN toggle
+  on every block; Bengali numerals in Bengali mode; Noto Sans Bengali.
+- **Transliteration (S7):** Bengali script in parentheses beside Bengali terms in English copy —
+  *bheete (ভিটে)*, *Pratyaavartan (প্রত্যাবর্তন)*. ⛔ **"vite" is retired — it is "bheete".**
+- **"many decades"**, never "thirty years" (S7).
+- **"Aspirational" is the anchor word (S7)** — make farming aspirational, help youngsters aspire to
+  be farmers, raise rural Bengal's aspirations, build aspirational farms. The pull quote now ends
+  *"It failed for want of aspiration"* (was "prestige").
+- **Firm tone on structure (S7):** "**15 regional teams**" — ⛔ drop "roughly".
+- **"Support & Verification"** or "Admin & Management" — ⛔ never "verification layer" (S7).
+- **Struggle, not failure (S7):** a farm will *struggle*, not fail. Open logs exist so a Pravasi
+  Bandhu can *lend a hand in that battle*. ⛔ Do not write "if the farm fails".
+- **Leadership credit (S7):** the West Bengal Chapter is led as State President by
+  **MahAcharya Shri Sourabh J. Sarkar, Founder of KarmYog for the 21st Century** — state this
+  explicitly wherever the chapter appears.
+
+## 8a. REQUIRED OUTBOUND LINKS (S7) — verified live 13 Sep 2026
+
+| What | URL |
+|---|---|
+| BKS West Bengal | https://bks-west-bengal.vercel.app |
+| Shri Krishan Bir Chaudhary | https://krishan-bir-chaudhary-phi.vercel.app |
+| MahAcharyaJi | https://bks-west-bengal.vercel.app — ⚠️ no dedicated page yet; using the BKS WB site. Supply a better URL if one exists. |
+| Krishak Samaj Durga Puja 2026 | https://bks-durga-puja-2026.vercel.app/site/ |
+| Krishi Ratna League Bengal | https://krl-bengal-launch.vercel.app/en |
+| Explanatory videos | ⛔ **NOT SUPPLIED.** Slot is on the page marked "coming shortly". Send URLs. |
+
+## 8b. IMAGERY (S7) — NOT SUPPLIED, slots are live on the page
+
+Two marked slots are built into the site and are deliberately visible rather than hidden:
+1. **Pratyaavartan / homecoming** — an ancestral *bheete*: the pond, the courtyard, the old house
+2. **Durga Puja on the farm** — the Munshi Bheri pandal rising on the working farm
+
+⛔ **Use real photographs.** This is a fundraising page about real people and a real Puja;
+AI-generated or stock imagery of either would misrepresent the project. KarmYog's own Green
+Village and Puja archives are the right source.
 
 ## 9. PHILOSOPHICAL VOCABULARY (S1 — preserve these terms)
 Jagaran → Jijnasa → Adhyayan → Sadhana · Pratyaavartan · Krishi Parivar ·
