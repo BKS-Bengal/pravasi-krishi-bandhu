@@ -24,7 +24,8 @@ No artifact may introduce a number that does not appear here. If a fact is not h
 
 **Bharatiya Krishak Samaj (BKS)**
 - Masthead name: **Bharatiya Krishak Samaj** — LOCKED (S6)
-- Founded **3 April 1955** by **Dr Panjabrao S. Deshmukh**, **Union Minister for Agriculture from 1952** (S4)
+- Founded **3 April 1955** by **Dr Panjabrao S. Deshmukh**, **appointed Agriculture Minister in
+  1952** (S4; wording approved by Ram 13 Sep 2026 — use this exact phrasing)
 - ⛔ **Print NO ordinal.** I originally wrote "first"; Sammy's 12 Sep review said "third". Sources
   disagree — the portfolio was *Food and Agriculture*, and depending on whether the interim
   government counts and how Jairamdas Daulatram → K.M. Munshi → Rafi Ahmed Kidwai are handled, he
@@ -281,15 +282,32 @@ This roadmap must appear **near the top** of every artifact, not buried at the e
 | Krishi Ratna League Bengal | https://krl-bengal-launch.vercel.app/en |
 | Explanatory videos | ⛔ **NOT SUPPLIED.** Slot is on the page marked "coming shortly". Send URLs. |
 
-## 8b. IMAGERY (S7) — NOT SUPPLIED, slots are live on the page
+## 8b-1. RULINGS FROM RAM, 13 SEPTEMBER 2026
 
-Two marked slots are built into the site and are deliberately visible rather than hidden:
-1. **Pratyaavartan / homecoming** — an ancestral *bheete*: the pond, the courtyard, the old house
-2. **Durga Puja on the farm** — the Munshi Bheri pandal rising on the working farm
+| Item | Ruling |
+|---|---|
+| The 6 / 2 / 2 money split | **CONFIRMED** as read — 90% farm · 6% prize · 2% operations · 2% administration |
+| Deshmukh's title | Print **"appointed Agriculture Minister in 1952"**. No ordinal. |
+| "Dudh Kumar Mondal" | **CONFIRMED** correct spelling |
+| Signatory | **MahAcharya Shri Sourabh J. Sarkar alone.** Shri Krishan Bir Chaudhary does **not** co-sign. |
+| Explanatory videos | Leave the slot as **"coming shortly"** |
+| Imagery | Ram asked for a picture of the **East Kolkata Wetlands** — supplied, see below |
 
-⛔ **Use real photographs.** This is a fundraising page about real people and a real Puja;
-AI-generated or stock imagery of either would misrepresent the project. KarmYog's own Green
-Village and Puja archives are the right source.
+## 8b. IMAGERY — one supplied, one still open
+
+**SUPPLIED — `assets/east-kolkata-wetlands.jpg`** (1168×880, 246 KB). An East Kolkata Wetlands
+landscape: fishery *bheris*, embankments planted with vegetables, fish traps, the Kolkata skyline
+beyond. Live on the website in The Return section, and on **page 9 of the 12-page document**.
+
+⚠️ **It is AI-generated (Higgsfield `gpt_image_2_5`, 13 Sep 2026), not a site photograph.** It is
+therefore captioned in both places as *"Illustrative rendering; photographs from the site itself to
+follow."* **That caption must stay until a real Munshi Bheri photograph replaces the image.** An
+uncaptioned rendering of a real place, on a page asking real people for money, is the thing to
+avoid.
+
+**STILL OPEN — one slot, live and visible on the site:**
+- **Pratyaavartan / homecoming** — an ancestral *bheete*: the pond, the courtyard, the old house.
+  ⛔ Real photograph. KarmYog's own Green Village and Puja archives are the right source.
 
 ## 9. PHILOSOPHICAL VOCABULARY (S1 — preserve these terms)
 Jagaran → Jijnasa → Adhyayan → Sadhana · Pratyaavartan · Krishi Parivar ·

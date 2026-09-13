@@ -184,7 +184,12 @@ ul.ticks li strong{color:var(--ink)}
 .note p{font-size:.92rem}
 
 /* ---------- image slots ---------- */
-.shots{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.shots{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-top:28px;align-items:start}
+.photo{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper)}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.photo figcaption{font-size:.82rem;line-height:1.5;color:var(--ink-mute);padding:14px 16px}
+.photo figcaption strong{color:var(--blue-deep)}
+.photo figcaption em{color:var(--ink-faint);font-style:italic}
 .shot{aspect-ratio:4/3;border:2px dashed var(--blue-line);border-radius:6px;
   background:var(--blue-tint);display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;padding:24px;gap:8px}
@@ -428,18 +433,24 @@ footer strong{color:var(--ink)}
     </div>
 
     <div class="shots">
+      <figure class="photo">
+        <img src="east-kolkata-wetlands.jpg"
+             alt="The East Kolkata Wetlands at golden hour — fishery bheris, earthen embankments planted with vegetables, and the Kolkata skyline beyond">
+        <figcaption>
+          <span class="en-only"><strong>The East Kolkata Wetlands.</strong> The bheris on whose
+          edge Munshi Bheri stands — the ground that becomes the first model farm, and the Durga
+          Puja. <em>Illustrative rendering; photographs from the site itself to follow.</em></span>
+          <span class="bn-only"><strong>পূর্ব কলকাতা জলাভূমি।</strong> যে ভেড়ির ধারে মুন্সি ভেড়ি —
+          যে জমি হয়ে উঠছে প্রথম মডেল খামার এবং দুর্গাপূজার প্রাঙ্গণ।
+          <em>প্রতীকী চিত্র; সাইটের নিজস্ব ছবি শীঘ্রই।</em></span>
+        </figcaption>
+      </figure>
       <div class="shot"><div class="ic">🏡</div>
         <div class="t"><span class="en-only">Pratyaavartan — the homecoming</span>
           <span class="bn-only">প্রত্যাবর্তন — ঘরে ফেরা</span></div>
         <div class="d"><span class="en-only">Photograph needed: an ancestral bheete — the pond,
           the courtyard, the old house. Real, not stock.</span>
           <span class="bn-only">ছবি প্রয়োজন: পৈতৃক ভিটে — পুকুর, উঠোন, পুরনো বাড়ি।</span></div></div>
-      <div class="shot"><div class="ic">🪔</div>
-        <div class="t"><span class="en-only">Durga Puja on the farm</span>
-          <span class="bn-only">খামারে দুর্গাপূজা</span></div>
-        <div class="d"><span class="en-only">Photograph needed: the Munshi Bheri pandal rising on
-          the working farm.</span>
-          <span class="bn-only">ছবি প্রয়োজন: সচল খামারে মুন্সি ভেড়ির প্যান্ডেল।</span></div></div>
     </div>
   </div>
 </section>
@@ -626,7 +637,7 @@ footer strong{color:var(--ink)}
           <span class="en-only">Bharatiya Krishak Samaj</span>
           <span class="bn-only">ভারতীয় কৃষক সমাজ</span></h3>
         <p class="en-only">Founded <strong>3 April 1955</strong> by <strong>Dr Panjabrao S.
-        Deshmukh</strong>, Union Minister for Agriculture from 1952, who kept the Samaj
+        Deshmukh</strong>, appointed Agriculture Minister in 1952, who kept the Samaj
         deliberately outside party politics so it could argue with any government of the day.</p>
         <p class="en-only">National President <strong>Shri Krishan Bir Chaudhary</strong> sits on
         the Government of India's <strong>Minimum Support Price Committee</strong>. He is a former
@@ -644,7 +655,7 @@ footer strong{color:var(--ink)}
         major undertaking.</p>
 
         <p class="bn-only"><strong>১৯৫৫ সালের ৩ এপ্রিল</strong> প্রতিষ্ঠা করেন
-        <strong>ডঃ পঞ্জাবরাও এস দেশমুখ</strong>, ১৯৫২ সাল থেকে কেন্দ্রীয় কৃষিমন্ত্রী, যিনি
+        <strong>ডঃ পঞ্জাবরাও এস দেশমুখ</strong>, ১৯৫২ সালে নিযুক্ত কৃষিমন্ত্রী, যিনি
         সমাজকে ইচ্ছে করেই দলীয় রাজনীতির বাইরে রেখেছিলেন — যাতে যে কোনও সরকারের সঙ্গে
         তর্ক করা যায়।</p>
         <p class="bn-only">জাতীয় সভাপতি <strong>শ্রী কৃষণ বীর চৌধুরী</strong> ভারত সরকারের
