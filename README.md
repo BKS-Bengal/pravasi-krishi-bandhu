@@ -11,17 +11,13 @@ Joint **Bharatiya Krishak Samaj** × **KarmYog for the 21st Century**.
 
 ---
 
-## 🔴 The PDFs are STALE — do not circulate them
+## Everything is at v2 — 13 September 2026
 
-**The website is at v2. `Pravasi-Krishi-Bandhu.pdf` and `Pravasi-Krishi-Bandhu-3page.pdf` are
-still v1** and now contradict the site on material points: the money split, the qualification
-gate, the awards date, the FCRA framing, the CTA, and Deshmukh's title. The Drive copies are the
-same v1.
+Website, 12-page document, 3-page appeal and the review Doc are all regenerated from the same
+`FACTS.md` and agree with each other. The Drive files were **replaced in place**, so every link
+already shared still works.
 
-**Regenerate both from `FACTS.md` before any of them goes out.** Until then the website is the
-only current artifact.
-
-## Site v2 — 13 September 2026
+## v2 — 13 September 2026
 
 **Palette.** v1 used a cream / warm-earth palette lifted from the BKS West Bengal site.
 MahAcharyaJi's verdict (12 Sep): *"dull and boring, very Claude — the colours are the Claude
